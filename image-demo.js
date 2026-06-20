@@ -1,6 +1,5 @@
 window.addEventListener("load", async () => {
   const fileInput = document.getElementById("fileIn");
-  const previewImage = document.getElementById("previewImg");
   const textOutput = document.getElementById("textOut");
   const statusText = document.getElementById("status");
   const copyButton = document.getElementById("copyBtn");
@@ -20,7 +19,6 @@ window.addEventListener("load", async () => {
       return;
     }
 
-    previewImage.src = URL.createObjectURL(imageFile);
     textOutput.value = "";
     copyButton.disabled = true;
     statusText.textContent = "Reading text from image...";
@@ -43,7 +41,6 @@ window.addEventListener("load", async () => {
 
   clearButton.addEventListener("click", () => {
     fileInput.value = "";
-    previewImage.src = "random.webp";
     textOutput.value = "";
     copyButton.disabled = true;
     statusText.textContent = "Choose an image to start.";

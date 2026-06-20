@@ -13,8 +13,8 @@ into editable digital text.
 - Image to text OCR
 - Camera to text OCR
 - English and Khmer support
-- Image preview
 - Copy extracted text
+- Flip camera option
 - Simple responsive design
 
 ## Files
@@ -47,5 +47,6 @@ camera access works best on `localhost` or HTTPS.
 
 - Clear printed text gives the best result.
 - Blurry images and handwriting may be inaccurate.
+- Use the Flip Camera button if the laptop webcam looks reversed.
 - The first OCR scan may be slow because the language models need to load.
 - Internet is required because Tesseract.js is loaded from a CDN.

@@ -132,6 +132,10 @@ video {
   aspect-ratio: 4 / 3;
 }
 
+video.flipped {
+  transform: scaleX(-1);
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

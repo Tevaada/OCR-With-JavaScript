@@ -1,10 +1,12 @@
 window.addEventListener("load", async () => {
   const cameraVideo = document.getElementById("camFeed");
   const readButton = document.getElementById("camGo");
+  const flipButton = document.getElementById("flipBtn");
   const copyButton = document.getElementById("copyBtn");
   const clearButton = document.getElementById("clearBtn");
   const textOutput = document.getElementById("textOut");
   const statusText = document.getElementById("status");
+  let cameraFlipped = false;
 
   statusText.textContent = "Loading OCR engine...";
 
@@ -34,6 +36,12 @@ window.addEventListener("load", async () => {
     canvas.height = cameraVideo.videoHeight;
 
     const canvasContext = canvas.getContext("2d");
+
+    if (cameraFlipped) {
+      canvasContext.translate(canvas.width, 0);
+      canvasContext.scale(-1, 1);
+    }
+
     canvasContext.drawImage(cameraVideo, 0, 0, canvas.width, canvas.height);
 
     try {
@@ -51,6 +59,12 @@ window.addEventListener("load", async () => {
     }
 
     readButton.disabled = false;
+  });
+
+  flipButton.addEventListener("click", () => {
+    cameraFlipped = !cameraFlipped;
+    cameraVideo.classList.toggle("flipped", cameraFlipped);
+    statusText.textContent = cameraFlipped ? "Camera view flipped." : "Camera view normal.";
   });
 
   copyButton.addEventListener("click", async () => {
