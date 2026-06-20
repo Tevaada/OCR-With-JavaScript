@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCR With JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>OCR With JavaScript</h1>
+      <p>
+        OCR means Optical Character Recognition. It is a technology that reads text
+        from an image, photo, screenshot, or camera frame.
+      </p>
+      <nav>
+        <a href="image-demo.html">Image To Text Demo</a>
+        <a href="camera-demo.html">Camera To Text Demo</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section class="wide">
+        <h2>What This Project Does</h2>
+        <p>
+          This website uses JavaScript and Tesseract.js to recognize English and
+          Khmer text directly inside the browser. The text does not need to be
+          typed manually.
+        </p>
+        <p>
+          First, the browser gets an image. Next, Tesseract.js studies the image
+          and tries to find letters. Finally, it returns the letters as normal
+          text that can be copied or edited.
+        </p>
+      </section>
+
+      <section>
+        <h2>Demo 1: Image To Text</h2>
+        <p>
+          Choose an image from your computer. The program reads the image and
+          shows the detected text.
+        </p>
+        <a class="button-link" href="image-demo.html">Open Image Demo</a>
+      </section>
+
+      <section>
+        <h2>Demo 2: Camera To Text</h2>
+        <p>
+          Open your camera, point it at text, then click a button to read the
+          current camera frame.
+        </p>
+        <a class="button-link" href="camera-demo.html">Open Camera Demo</a>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camera To Text OCR</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/6.0.1/tesseract.min.js"></script>
+  <script defer src="camera-demo.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Camera To Text OCR</h1>
+      <p>Use your webcam to capture English or Khmer text and read it with JavaScript OCR.</p>
+      <nav>
+        <a class="secondary" href="index.html">Home</a>
+        <a href="image-demo.html">Image Demo</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section>
+        <h2>1. Camera Preview</h2>
+        <video id="camFeed" autoplay playsinline></video>
+        <p class="note">Camera access works best on localhost or HTTPS.</p>
+      </section>
+
+      <section>
+        <h2>2. Read Text From Camera</h2>
+        <p id="status" class="status">Starting camera...</p>
+        <div class="actions">
+          <button id="camGo" disabled>Read Text</button>
+          <button id="copyBtn" disabled>Copy Text</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+        <textarea id="textOut" placeholder="Detected text will appear here..."></textarea>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

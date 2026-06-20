@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image To Text OCR</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/6.0.1/tesseract.min.js"></script>
+  <script defer src="image-demo.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Image To Text OCR</h1>
+      <p>Upload an image and JavaScript will try to read English or Khmer text inside it.</p>
+      <nav>
+        <a class="secondary" href="index.html">Home</a>
+        <a href="camera-demo.html">Camera Demo</a>
+      </nav>
+    </header>
+
+    <main class="grid">
+      <section>
+        <h2>1. Choose An Image</h2>
+        <input type="file" accept="image/*" id="fileIn">
+        <p class="note">Tip: clear printed English or Khmer text works better than blurry handwriting.</p>
+      </section>
+
+      <section class="wide">
+        <h2>3. OCR Result</h2>
+        <p id="status" class="status">Choose an image to start.</p>
+        <div class="actions">
+          <button id="copyBtn" disabled>Copy Text</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+        <textarea id="textOut" placeholder="Detected text will appear here..."></textarea>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
