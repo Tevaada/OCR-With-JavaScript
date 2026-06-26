@@ -4,6 +4,9 @@ window.addEventListener("load", async () => {
   const statusText = document.getElementById("status");
   const copyButton = document.getElementById("copyBtn");
   const clearButton = document.getElementById("clearBtn");
+  const previewImage = document.getElementById("previewImg");
+  const previewText = document.getElementById("previewText");
+  let previewUrl = "";
 
   statusText.textContent = "Loading OCR engine...";
 
@@ -16,12 +19,24 @@ window.addEventListener("load", async () => {
 
     if (!imageFile) {
       statusText.textContent = "No image selected.";
+      previewImage.removeAttribute("src");
+      previewImage.hidden = true;
+      previewText.hidden = false;
       return;
     }
 
     textOutput.value = "";
     copyButton.disabled = true;
     statusText.textContent = "Reading text from image...";
+    previewText.hidden = true;
+
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+    }
+
+    previewUrl = URL.createObjectURL(imageFile);
+    previewImage.src = previewUrl;
+    previewImage.hidden = false;
 
     try {
       const result = await worker.recognize(imageFile);
@@ -43,6 +58,14 @@ window.addEventListener("load", async () => {
     fileInput.value = "";
     textOutput.value = "";
     copyButton.disabled = true;
+    previewImage.removeAttribute("src");
+    previewImage.hidden = true;
+    previewText.hidden = false;
     statusText.textContent = "Choose an image to start.";
+
+    if (previewUrl) {
+      URL.revokeObjectURL(previewUrl);
+      previewUrl = "";
+    }
   });
 });

@@ -4,53 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OCR With JavaScript</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/6.0.1/tesseract.min.js"></script>
+  <script defer src="js/app.js"></script>
 </head>
 <body>
+  
   <div class="page">
-    <header>
-      <h1>OCR With JavaScript</h1>
-      <p>
-        OCR means Optical Character Recognition. It is a technology that reads text
-        from an image, photo, screenshot, or camera frame.
-      </p>
-      <nav>
-        <a href="image-demo.html">Image To Text Demo</a>
-        <a href="camera-demo.html">Camera To Text Demo</a>
-      </nav>
+    <!-- This is a "Image to text OCR"  -->
+    <header class="card hero"> 
+      <h1 class="title">Image To Text OCR</h1>
+      <p class="text">Upload an image and JavaScript will try to read English or Khmer text inside it.</p>
     </header>
 
     <main class="grid">
-      <section class="wide">
-        <h2>What This Project Does</h2>
-        <p>
-          This website uses JavaScript and Tesseract.js to recognize English and
-          Khmer text directly inside the browser. The text does not need to be
-          typed manually.
-        </p>
-        <p>
-          First, the browser gets an image. Next, Tesseract.js studies the image
-          and tries to find letters. Finally, it returns the letters as normal
-          text that can be copied or edited.
-        </p>
+
+      <!-- This is a "Choose AN image" block -->
+      <section class="card">
+        <h2 class="subtitle">1. Choose An Image</h2>
+        <input class="file-input" type="file" accept="image/*" id="fileIn">
+        <p class="text note">Tip: clear printed English or Khmer text works better than blurry handwriting.</p>
       </section>
 
-      <section>
-        <h2>Demo 1: Image To Text</h2>
-        <p>
-          Choose an image from your computer. The program reads the image and
-          shows the detected text.
-        </p>
-        <a class="button-link" href="image-demo.html">Open Image Demo</a>
+      <!-- This is a "Preview" block -->
+      <section class="card">
+        <h2 class="subtitle">Preview</h2>
+        <div class="preview">
+          <img class="preview-image" id="previewImg" alt="Selected image preview">
+          <span id="previewText">No image selected</span>
+        </div>
       </section>
 
-      <section>
-        <h2>Demo 2: Camera To Text</h2>
-        <p>
-          Open your camera, point it at text, then click a button to read the
-          current camera frame.
-        </p>
-        <a class="button-link" href="camera-demo.html">Open Camera Demo</a>
+      <!-- This is a "OCR Result" block -->
+      <section class="card wide">
+        <h2 class="subtitle">2. OCR Result</h2>
+        <p id="status" class="status text">Choose an image to start.</p>
+        <div class="actions">
+          <button class="button" id="copyBtn" disabled>Copy Text</button>
+          <button class="button" id="clearBtn">Clear</button>
+        </div>
+        <textarea class="text-output" id="textOut" placeholder="Detected text will appear here..."></textarea>
       </section>
     </main>
   </div>
