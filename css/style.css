@@ -5,12 +5,12 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color: #1f2937;
-  background: #f3f6fb;
+  color: #000000;
+  background: #305a9d;
 }
 
 .page {
-  max-width: 1000px;
+  max-width: 2000px;
   margin: 0 auto;
   padding: 30px 20px;
 }
@@ -91,7 +91,7 @@ body {
 .button {
   padding: 10px 16px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 28px;
   color: #ffffff;
   background: #2563eb;
   font: inherit;

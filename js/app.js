@@ -10,7 +10,7 @@ window.addEventListener("load", async () => {
 
   statusText.textContent = "Loading OCR engine...";
 
-  const worker = await Tesseract.createWorker("eng+khm");
+  const worker = await Tesseract.createWorker("eng");
 
   statusText.textContent = "Choose an image to start.";
 
@@ -26,7 +26,8 @@ window.addEventListener("load", async () => {
     }
 
     textOutput.value = "";
-    copyButton.disabled = true;
+    // when proccessing can not copy but after finished can copy 
+    copyButton.disabled = true;  
     statusText.textContent = "Reading text from image...";
     previewText.hidden = true;
 
@@ -54,7 +55,7 @@ window.addEventListener("load", async () => {
     statusText.textContent = "Text copied to clipboard.";
   });
 
-  clearButton.addEventListener("click", () => {
+  clearButton.addEventListener("click", async () => {
     fileInput.value = "";
     textOutput.value = "";
     copyButton.disabled = true;
@@ -66,6 +67,7 @@ window.addEventListener("load", async () => {
     if (previewUrl) {
       URL.revokeObjectURL(previewUrl);
       previewUrl = "";
+      
     }
   });
 });
